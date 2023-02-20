@@ -1,0 +1,11 @@
+.react-multi-carousel-track{
+    display: flex;
+    align-items: center;
+}
+.headerExploreMore .headerExploreMoreArrow{
+    left : 0px;
+    transition: left .2s ease-in-out;
+}
+.headerExploreMore:hover .headerExploreMoreArrow {
+    left : 5px
+}

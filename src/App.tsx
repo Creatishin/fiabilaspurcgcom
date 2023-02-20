@@ -1,25 +1,242 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, ThemeProvider } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense } from "react";
+import Footer from "./Components/Modals/Footer";
+import Header from "./Components/Modals/Header";
+import NavBar from "./Components/Modals/NavBar";
+import SuspenseLoading from "./Components/Modals/SuspenseLoading";
+import ScrollToTop from "./Components/ScrollToTop";
+import PrivacyPolicy from "./Components/Pages/Privacy/PrivacyPolicy";
+import TermAndCondition from "./Components/Pages/Privacy/TermAndCondition";
+const CustomSoftware = React.lazy(
+  () => import("./Components/Pages/CustomSoftware/CustomSoftware")
+);
+const About = React.lazy(() => import("./Components/Pages/about/About"));
+const DesignStudio = React.lazy(
+  () => import("./Components/Pages/designStudio/DesignStudio")
+);
+const Home = React.lazy(() => import("./Components/Pages/Home/Home"));
+const Career = React.lazy(() => import("./Components/Pages/Career/Career"));
+const CareerSingle = React.lazy(
+  () => import("./Components/Pages/Career/CareerSingle")
+);
+const Outsourcing = React.lazy(
+  () => import("./Components/Pages/Outsourcing/Outsourcing")
+);
+const ContactUs = React.lazy(
+  () => import("./Components/Pages/ContactUs/ContactUs")
+);
+
+declare module "@mui/material/styles" {
+  interface ThemeOptions {
+    textColor?: {
+      heading?: string;
+      para?: string;
+      body?: string;
+      placeHolder?: string;
+      grad1?: string;
+      grad2?: string;
+    };
+    backgroundColor?: {
+      header?: string;
+      navBar?: string;
+      charcoal?: string;
+      yellowRed?: string;
+      designStudio1?: string;
+      designStudio2?: string;
+      orange1?: string;
+      orange2?: string;
+      green1?: string;
+      green2?: string;
+      yelgre1?: string;
+      yelgre2?: string;
+      yelgre3?: string;
+      yelgre4?: string;
+      mainGradient1?: string;
+      mainGradient2?: string;
+      fieldBorder?: string;
+      yellow?: string;
+      pink?: string;
+      white?: string;
+      purple?: string;
+      linear1?: string;
+      linear2?: string;
+    };
+    gapping?: {
+      pagePadding?: string;
+      pageMargin?: string;
+    };
+  }
+}
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#092532",
+    },
+    secondary: {
+      main: "#21ABA5",
+    },
+    error: {
+      main: "#FF0000",
+    },
+  },
+  textColor: {
+    heading: "#143C46",
+    para: "#08323C",
+    body: "#808080",
+    placeHolder: "#AAAAAA",
+    grad1: "#043BFF",
+    grad2: "#45D92D",
+  },
+  backgroundColor: {
+    header: "#E8F4EC",
+    navBar: "#E1F0FF",
+    charcoal: "#143C46",
+    yellowRed: "#FDC448",
+    designStudio1: "rgba(188, 231, 255, 0.67)",
+    designStudio2: "rgba(134, 96, 242, 0.61)",
+    orange1: "#FEF8E3",
+    orange2: "#FFCBCB",
+    green1: "#14CC97",
+    green2: "#ADFFE7",
+    yelgre1: "rgba(255, 236, 167, 1)",
+    yelgre2: "rgba(167, 216, 222, 1)",
+    yelgre3: "rgba(255, 236, 167, .15)",
+    yelgre4: "rgba(167, 216, 222, .15)",
+    mainGradient1: "rgba(225, 240, 255, 1)",
+    mainGradient2: "rgba(255, 255, 255, 0)",
+    fieldBorder: "#D1D1D1",
+    yellow: "rgba(254, 248, 227, 1)",
+    pink: "rgba(255, 203, 203, 1)",
+    white: "rgba(255, 255, 255, 1)",
+    purple: "rgba(237, 215, 251, 0.56)",
+    linear1: "rgba(130, 130, 130, 0)",
+    linear2: "rgba(216, 217, 227, 0.34)",
+  },
+  typography: {
+    h1: {
+      fontSize: "60px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "50px",
+      },
+    },
+    h2: {
+      fontSize: "48px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "40px",
+      },
+    },
+    h3: {
+      fontSize: "42px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "36px",
+      },
+    },
+    h4: {
+      fontSize: "36px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "30px",
+      },
+    },
+    h5: {
+      fontSize: "12px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "10px",
+      },
+    },
+    subtitle1: {
+      fontSize: "28px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "22px",
+      },
+    },
+    subtitle2: {
+      fontSize: "24px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "18px",
+      },
+    },
+    body1: {
+      fontSize: "20px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "16px",
+      },
+    },
+    body2: {
+      fontSize: "18px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "14px",
+      },
+    },
+    caption: {
+      fontSize: "16px",
+      color: "#092532",
+      "@media (max-width:600px)": {
+        fontSize: "12px",
+      },
+    },
+    button: {
+      fontSize: "18px",
+      color: "#092532",
+      textDecoration: "none",
+      textTransform: "none",
+      "@media (max-width:600px)": {
+        fontSize: "14px",
+      },
+    },
+  },
+  gapping: {
+    pageMargin: "30px",
+    pagePadding: "30px",
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          This page is visible from dev
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Suspense fallback={<SuspenseLoading theme={theme} />}>
+          <Header theme={theme} />
+          <NavBar theme={theme} />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home theme={theme} />} />
+            <Route
+              path="/customsoftware"
+              element={<CustomSoftware theme={theme} />}
+            />
+            <Route path="/career" element={<Career theme={theme} />} />
+            <Route
+              path="/career/:openingID"
+              element={<CareerSingle theme={theme} />}
+            />
+            <Route
+              path="/outsourcing"
+              element={<Outsourcing theme={theme} />}
+            />
+            <Route path="/contactus" element={<ContactUs theme={theme} />} />
+            <Route
+              path="/designstudio"
+              element={<DesignStudio theme={theme} />}
+            />
+            <Route path="/about" element={<About theme={theme} />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy theme={theme} />} />
+            <Route path="/termandcondition" element={<TermAndCondition theme={theme} />} />
+          </Routes>
+          <Footer theme={theme} />
+        </Suspense>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

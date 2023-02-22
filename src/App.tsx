@@ -1,31 +1,12 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import Footer from "./Components/Modals/Footer";
 import Header from "./Components/Modals/Header";
 import NavBar from "./Components/Modals/NavBar";
 import SuspenseLoading from "./Components/Modals/SuspenseLoading";
 import ScrollToTop from "./Components/ScrollToTop";
-import PrivacyPolicy from "./Components/Pages/Privacy/PrivacyPolicy";
-import TermAndCondition from "./Components/Pages/Privacy/TermAndCondition";
-const CustomSoftware = React.lazy(
-  () => import("./Components/Pages/CustomSoftware/CustomSoftware")
-);
-const About = React.lazy(() => import("./Components/Pages/about/About"));
-const DesignStudio = React.lazy(
-  () => import("./Components/Pages/designStudio/DesignStudio")
-);
-const Home = React.lazy(() => import("./Components/Pages/Home/Home"));
-const Career = React.lazy(() => import("./Components/Pages/Career/Career"));
-const CareerSingle = React.lazy(
-  () => import("./Components/Pages/Career/CareerSingle")
-);
-const Outsourcing = React.lazy(
-  () => import("./Components/Pages/Outsourcing/Outsourcing")
-);
-const ContactUs = React.lazy(
-  () => import("./Components/Pages/ContactUs/ContactUs")
-);
+const Home = React.lazy(() => import("./Components/Pages/Home/Home"))
 
 declare module "@mui/material/styles" {
   interface ThemeOptions {
@@ -72,10 +53,10 @@ declare module "@mui/material/styles" {
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#092532",
+      main: "#161823",
     },
     secondary: {
-      main: "#21ABA5",
+      main: "#f35344",
     },
     error: {
       main: "#FF0000",
@@ -83,14 +64,14 @@ export const theme = createTheme({
   },
   textColor: {
     heading: "#143C46",
-    para: "#08323C",
+    para: "#777777",
     body: "#808080",
     placeHolder: "#AAAAAA",
     grad1: "#043BFF",
     grad2: "#45D92D",
   },
   backgroundColor: {
-    header: "#E8F4EC",
+    header: "#21242e",
     navBar: "#E1F0FF",
     charcoal: "#143C46",
     yellowRed: "#FDC448",
@@ -202,6 +183,7 @@ export const theme = createTheme({
 });
 
 function App() {
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -211,27 +193,6 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home theme={theme} />} />
-            <Route
-              path="/customsoftware"
-              element={<CustomSoftware theme={theme} />}
-            />
-            <Route path="/career" element={<Career theme={theme} />} />
-            <Route
-              path="/career/:openingID"
-              element={<CareerSingle theme={theme} />}
-            />
-            <Route
-              path="/outsourcing"
-              element={<Outsourcing theme={theme} />}
-            />
-            <Route path="/contactus" element={<ContactUs theme={theme} />} />
-            <Route
-              path="/designstudio"
-              element={<DesignStudio theme={theme} />}
-            />
-            <Route path="/about" element={<About theme={theme} />} />
-            <Route path="/privacypolicy" element={<PrivacyPolicy theme={theme} />} />
-            <Route path="/termandcondition" element={<TermAndCondition theme={theme} />} />
           </Routes>
           <Footer theme={theme} />
         </Suspense>

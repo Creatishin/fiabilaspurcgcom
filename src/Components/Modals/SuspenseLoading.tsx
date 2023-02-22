@@ -1,8 +1,7 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import { useEffect } from 'react';
 import { motion } from "framer-motion";
-import loader from '../../Assets/Icons/loader.svg'
+import loader from '../../Assets/Icons/FIALOGO.png'
 
 function SuspenseLoading({theme} : {theme:any}) {
 

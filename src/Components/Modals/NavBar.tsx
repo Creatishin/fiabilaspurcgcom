@@ -1,37 +1,18 @@
 import {
   AppBar,
   Box,
-  Divider,
   IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import OkodersLogo from "../../Assets/Icons/fullLogo.png";
-import phoneIcon from "../../Assets/Icons/call.svg";
-// import phoneIcon from "../../Assets/Icons/phoneIcon.png";
-// import facebook from "../../Assets/Icons/facebook.png";
-import facebook from "../../Assets/Icons/fa-facebook-square.svg";
-// import linkedin from "../../Assets/Icons/linkedin.png";
-import linkedin from "../../Assets/Icons/mdi_linkedin.svg";
-// import twitter from "../../Assets/Icons/twitter.png";
-import twitter from "../../Assets/Icons/fa-twitter.svg";
+import FIALogo from "../../Assets/Icons/FIALOGO.png";
 import { Menu } from "@mui/icons-material";
-import { motion } from "framer-motion";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./Modals.css"
 
 function NavBar({ theme }: { theme: any }) {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const ref4 = useRef(null);
-  const ref5 = useRef(null);
-
-  const isInView = useInView(ref1, { once: false });
 
   const style = {
     mainContainer: {
@@ -40,13 +21,14 @@ function NavBar({ theme }: { theme: any }) {
       boxSizing: "border-box",
       backdropFilter: "blur(5px)",
       transition: "all 2s ease !important",
+      borderBottom: "1px solid rgba(255,255,255,.5)"
     } as React.CSSProperties,
     container: {
       width: "100%",
       height: "100%",
       maxWidth: "1300px",
       display: "flex",
-      padding: "0px 20px",
+      padding: "0px 30px",
     } as React.CSSProperties,
     logoContainer: {
       display: "flex",
@@ -54,23 +36,26 @@ function NavBar({ theme }: { theme: any }) {
       alignItems: "center",
     } as React.CSSProperties,
     logoImage: {
-      width: "125px",
+      width: "200px",
       cursor: "pointer",
     } as React.CSSProperties,
     navigationContainer: {
       gap: "30px",
     } as React.CSSProperties,
     navigationText: {
+      color:'white',
       cursor: "pointer",
       borderBottom: `3px solid transparent`,
       textDecoration: "none",
       transform: "scale(1)",
       transition: "all .3s ease",
       "&:hover": {
+        color: theme.palette.secondary.main,
         borderBottom: `3px solid ${theme.palette.secondary.main} !important`,
       } as React.CSSProperties,
       "&:active": {
         scale: 0.9,
+        color:"white",
         transform: "scale(.9)",
       } as React.CSSProperties,
     } as React.CSSProperties,
@@ -79,57 +64,13 @@ function NavBar({ theme }: { theme: any }) {
       alignItems: "center",
       gap: "10px",
     } as React.CSSProperties,
-    contactCall: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "7px",
+    getQuote : {
+      fontWeight: 700,
+      border: `2px solid ${theme.palette.secondary.main}`,
+      padding: "10px 40px",
+      borderRadius: "30px",
       cursor: "pointer",
-    } as React.CSSProperties,
-    contactDivider: {
-      height: "22px",
-      width: "1px",
-      margin: "0px 5px",
-      backgroundColor: `${theme.palette.primary.main}`,
-    } as React.CSSProperties,
-    contactSocial: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      alignContent: "center",
-      gap: "16px",
-    } as React.CSSProperties,
-    socialNavigation: {
-      padding: "4px",
-    } as React.CSSProperties,
-    socialIcon: {
-      cursor: "pointer",
-    } as React.CSSProperties,
-    animator1: {
-      transform: isInView ? "none" : "translateX(100px)",
-      opacity: isInView ? 1 : 0,
-      transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) .1s",
-    } as React.CSSProperties,
-    animator2: {
-      transform: isInView ? "none" : "translateX(100px)",
-      opacity: isInView ? 1 : 0,
-      transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) .2s",
-    } as React.CSSProperties,
-    animator3: {
-      transform: isInView ? "none" : "translateX(100px)",
-      opacity: isInView ? 1 : 0,
-      transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) .3s",
-    } as React.CSSProperties,
-    animator4: {
-      transform: isInView ? "none" : "translateX(100px)",
-      opacity: isInView ? 1 : 0,
-      transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) .4s",
-    } as React.CSSProperties,
-    animator5: {
-      transform: isInView ? "none" : "translateX(100px)",
-      opacity: isInView ? 1 : 0,
-      transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) .5s",
-    } as React.CSSProperties,
+    } as React.CSSProperties
   };
 
   const Navigate = useNavigate();
@@ -140,7 +81,7 @@ function NavBar({ theme }: { theme: any }) {
   return (
     <AppBar
       elevation={0}
-      style={{ background: "rgba(256, 256, 256, 0.55)", zIndex: 3000 }}
+      style={{ background: "rgba(22, 24, 35,.95)", zIndex: 3000 }}
     >
       <Toolbar
         style={style.mainContainer}
@@ -148,7 +89,7 @@ function NavBar({ theme }: { theme: any }) {
           padding: {
             xs: "10px 0px 10px 0px",
             sm: "10px 0px 10px 0px",
-            md: "50px 30px 20px 30px",
+            md: "90px 30px 30px 30px",
           },
           height: {
             xs: openMenu ? "100vh" : "auto",
@@ -179,14 +120,14 @@ function NavBar({ theme }: { theme: any }) {
                 setOpenMenu(false);
               }}
               style={style.logoImage}
-              src={OkodersLogo}
+              src={FIALogo}
               alt="Logo"
             />
             <IconButton
               onClick={() => setOpenMenu((prev) => !prev)}
               sx={{ display: { xs: "block", sm: "block", md: "none" } }}
             >
-              <Menu />
+              <Menu style={{color:'white'}} />
             </IconButton>
           </Box>
           <Box
@@ -204,11 +145,14 @@ function NavBar({ theme }: { theme: any }) {
             <Typography
               onClick={() => {
                 setOpenMenu((prev) => !prev);
-                Navigate("customsoftware");
+                Navigate("");
               }}
               style={{
+                color: currentPath === ""
+                ? theme.palette.secondary.main
+                : "white",
                 borderBottom: `3px solid ${
-                  currentPath === "customsoftware"
+                  currentPath === ""
                     ? theme.palette.secondary.main
                     : "transparent"
                 }`,
@@ -217,62 +161,7 @@ function NavBar({ theme }: { theme: any }) {
               variant="caption"
               color="primary"
             >
-              Custom Software
-            </Typography>
-            <Typography
-              onClick={() => {
-                setOpenMenu((prev) => !prev);
-                Navigate("outsourcing");
-              }}
-              style={{
-                borderBottom: `3px solid ${
-                  currentPath === "outsourcing"
-                    ? theme.palette.secondary.main
-                    : "transparent"
-                }`,
-              }}
-              sx={style.navigationText}
-              variant="caption"
-              color="primary"
-            >
-              Outsourcing
-            </Typography>
-            <Typography
-              onClick={() => {
-                setOpenMenu((prev) => !prev);
-                Navigate("designstudio");
-              }}
-              style={{
-                borderBottom: `3px solid ${
-                  currentPath === "designstudio"
-                    ? theme.palette.secondary.main
-                    : "transparent"
-                }`,
-              }}
-              sx={style.navigationText}
-              variant="caption"
-              color="primary"
-            >
-              Design Studio
-            </Typography>
-
-            <Typography
-              onClick={() => {
-                setOpenMenu((prev) => !prev);
-                Navigate("career");
-              }}
-              style={{
-                borderBottom: `3px solid ${
-                  currentPath === "career"
-                    ? theme.palette.secondary.main
-                    : "transparent"
-                }`,
-              }}
-              sx={style.navigationText}
-              variant="caption"
-              color="primary"
-            >
-              Career
+              Home
             </Typography>
             <Typography
               onClick={() => {
@@ -280,6 +169,9 @@ function NavBar({ theme }: { theme: any }) {
                 Navigate("about");
               }}
               style={{
+                color: currentPath === "about"
+                ? theme.palette.secondary.main
+                : "white",
                 borderBottom: `3px solid ${
                   currentPath === "about"
                     ? theme.palette.secondary.main
@@ -291,6 +183,69 @@ function NavBar({ theme }: { theme: any }) {
               color="primary"
             >
               About
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("services");
+              }}
+              style={{
+                color: currentPath === "services"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "services"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Services
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("blogs");
+              }}
+              style={{
+                color: currentPath === "blogs"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "blogs"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Blogs
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("contacts");
+              }}
+              style={{
+                color: currentPath === "contacts"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "contacts"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Contacts
             </Typography>
           </Box>
           <Box
@@ -305,130 +260,115 @@ function NavBar({ theme }: { theme: any }) {
               width: { xs: "100%", sm: "100%", md: "auto" },
               flex: "1",
               flexDirection: { xs: "column", sm: "column", md: "row" },
-              justifyContent: { xs: "start", sm: "start", md: "center" },
-              alignItems: { xs: "flex-end", sm: "flex-end", md: "center" },
+              justifyContent: { xs: "center", sm: "center", md: "center" },
+              alignItems: { xs: "center", sm: "center", md: "center" },
             }}
           >
-            {/* <motion.a ref={ref1} style={style.animator1}>
-              <Typography
-                style={{
-                  borderBottom: `3px solid ${
-                    currentPath === "designstudio"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
-                onClick={() => {
-                  setOpenMenu((prev) => !prev);
-                  Navigate("designstudio");
-                }}
-                sx={style.navigationText}
-                variant="caption"
-                color="primary"
-              >
-                Design Studio
-              </Typography>
-            </motion.a> */}
-            <motion.a ref={ref2} style={style.animator2}>
-              <Typography
-                style={{
-                  borderBottom: `3px solid ${
-                    currentPath === "customsoftware"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
-                onClick={() => {
-                  setOpenMenu((prev) => !prev);
-                  Navigate("customsoftware");
-                }}
-                sx={style.navigationText}
-                variant="caption"
-                color="primary"
-              >
-                Custom Software
-              </Typography>
-            </motion.a>
-            <motion.a ref={ref3} style={style.animator3}>
-              <Typography
-                style={{
-                  borderBottom: `3px solid ${
-                    currentPath === "outsourcing"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
-                onClick={() => {
-                  setOpenMenu((prev) => !prev);
-                  Navigate("outsourcing");
-                }}
-                sx={style.navigationText}
-                variant="caption"
-                color="primary"
-              >
-                Outsourcing
-              </Typography>
-            </motion.a>
-            <motion.a ref={ref1} style={style.animator1}>
-              <Typography
-                style={{
-                  borderBottom: `3px solid ${
-                    currentPath === "designstudio"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
-                onClick={() => {
-                  setOpenMenu((prev) => !prev);
-                  Navigate("designstudio");
-                }}
-                sx={style.navigationText}
-                variant="caption"
-                color="primary"
-              >
-                Design Studio
-              </Typography>
-            </motion.a>
-            <motion.a ref={ref4} style={style.animator4}>
-              <Typography
-                style={{
-                  borderBottom: `3px solid ${
-                    currentPath === "career"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
-                onClick={() => {
-                  setOpenMenu((prev) => !prev);
-                  Navigate("career");
-                }}
-                sx={style.navigationText}
-                variant="caption"
-                color="primary"
-              >
-                Career
-              </Typography>
-            </motion.a>
-            <motion.a ref={ref5} style={style.animator5}>
-              <Typography
-                style={{
-                  borderBottom: `3px solid ${
-                    currentPath === "about"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
-                onClick={() => {
-                  setOpenMenu((prev) => !prev);
-                  Navigate("about");
-                }}
-                sx={style.navigationText}
-                variant="caption"
-                color="primary"
-              >
-                About
-              </Typography>
-            </motion.a>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("");
+              }}
+              style={{
+                color: currentPath === ""
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === ""
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Home
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("about");
+              }}
+              style={{
+                color: currentPath === "about"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "about"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              About
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("services");
+              }}
+              style={{
+                color: currentPath === "services"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "services"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Services
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("blogs");
+              }}
+              style={{
+                color: currentPath === "blogs"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "blogs"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Blogs
+            </Typography>
+            <Typography
+              onClick={() => {
+                setOpenMenu((prev) => !prev);
+                Navigate("contacts");
+              }}
+              style={{
+                color: currentPath === "contacts"
+                ? theme.palette.secondary.main
+                : "white",
+                borderBottom: `3px solid ${
+                  currentPath === "contacts"
+                    ? theme.palette.secondary.main
+                    : "transparent"
+                }`,
+              }}
+              sx={style.navigationText}
+              variant="caption"
+              color="primary"
+            >
+              Contacts
+            </Typography>
           </Box>
           <Box
             style={style.contactContainer}
@@ -444,56 +384,18 @@ function NavBar({ theme }: { theme: any }) {
             <Box
               onClick={() => {
                 setOpenMenu(false);
-                Navigate("contactus");
+                Navigate("quote");
               }}
-              style={style.contactCall}
+              className="getQuoteClass"
+              style={style.getQuote}
             >
-              <img src={phoneIcon} alt="Phone Icon" />
               <Typography
-                sx={{
-                  ml: "4px",
-                  borderBottom: `3px solid ${
-                    currentPath === "contactus"
-                      ? theme.palette.secondary.main
-                      : "transparent"
-                  }`,
-                }}
                 variant="caption"
-                color="primary"
+                color="white"
+                fontWeight="500"
               >
-                Contact Us
+                Get a quote
               </Typography>
-            </Box>
-            <Divider style={style.contactDivider} orientation="vertical" />
-            <Box sx={style.contactSocial}>
-              {/* <img
-                style={style.socialIcon}
-                src={twitter}
-                // height="16px"
-                alt="Twitter Icon"
-              /> */}
-              <a
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                href="https://www.linkedin.com/company/okoderstech/mycompany/"
-              >
-                <img
-                  style={style.socialIcon}
-                  src={linkedin}
-                  height="24px"
-                  alt="Linkedin Icon"
-                />
-              </a>
-
-              {/* <img
-                style={style.socialIcon}
-                src={facebook}
-                // height="16px"
-                alt="Facebook Icon"
-              /> */}
             </Box>
           </Box>
         </Box>

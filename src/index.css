@@ -7,7 +7,7 @@ body {
 body,
 body * {
   font-family: "Poppins", sans-serif !important;
-  
+  box-sizing: border-box;
 }
 
 code {
@@ -24,7 +24,7 @@ code {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 /* Track */
@@ -34,10 +34,10 @@ code {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #17cc97;
+  background: #f35344;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #17cc80;
+  background: #f74333;
 }

@@ -1,8 +1,6 @@
 import { Button, Grid, MenuItem, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
-import enquiryImage from '../../Assets/images/enquiryImage.svg'
-import atIcon from '../../Assets/Icons/email-address-symbol-6617363-5576142.webp'
 
 function Enquiry({theme} : {theme:any}) {
 
@@ -109,64 +107,31 @@ function Enquiry({theme} : {theme:any}) {
         } as React.CSSProperties,
     }
 
-    const [project, setProject] = useState<boolean>(true)
-
     const enquityOption = [
-        {
-            value : "Enquiry for New Project",
-            type : "Project"
-        },
-        {
-            value : "Enquiry for Running Project",
-            type : "Project"
-        },
-        {
-            value : "Report an Issue on Running Project",
-            type : "Project"
-        },
-        {
-            value : "Want to Hier Engineers",
-            type : "OutSource"
-        },
-        {
-            value : "Feedback for an Engineer",
-            type : "OutSource"
-        },
-        {
-            value : "Enquiry regarding Outsouring Process",
-            type : "OutSource"
-        },
+        "Questioned Document Examination",
+        "Fingerprint Analysis",
+        "Crime Scene Investigation",
+        "Legal Advice",
+        "Audio - Video Forensics",
+        "Medico-Legal Consultation",
+        "Cyber Forensics",
+        "Detective Service",
+        "Insurance Claim Investigation"
     ]
 
     const [enquiryHelpType, setEnquiryHelpType] = useState<string>("")
 
   return (
     <>
-    <Box style={style.container}>
-        <Box style={style.wrapper}>
-          <Box style={style.uniWrapper} sx={{flexDirection:"column"}}>
-              <Box sx={{width:{xs:"100%", sm:"80%", md:"70%"}}}>
-                <img src={enquiryImage} alt="Enquiry Idea" width="100%" />
-              </Box>
-          </Box>
-        </Box>
-    </Box>
     <Box style={style.container} sx={{position:"relative", backgroundImage : `linear-gradient(${theme.backgroundColor.linear1}, ${theme.backgroundColor.linear2})`,}}>
         <Box style={style.wrapper}>
             <Box style={style.uniWrapper} sx={{flexDirection:"column", paddingBottom : "40px"}}>
-                <Box style={style.switchContainer}>
-                    <Box onClick={()=>setProject(true)} style={style.leftSwitch} sx={{backgroundColor : project ? theme.palette.primary.main : "#E9E9E9"}}>
-                        <Typography variant="body2" color={project ? "white" : "primary"}>Enquiry for Project</Typography>
-                    </Box>
-                    <Box onClick={()=>setProject(false)} style={style.rightSwitch} sx={{backgroundColor : !project ? theme.palette.primary.main : "#E9E9E9"}}>
-                        <Typography variant="body2" color={project ? "primary" : "white"}>Enquiry for Outsourcing</Typography>
-                    </Box>
-                </Box>
-                <Box>
-                    <Typography variant='subtitle2' fontWeight="500" color="primary">
-                        Enter your Detail here
+                
+                <Box textAlign="center">
+                    <Typography variant='h2' textAlign="center" fontWeight="700" color="primary">
+                        Connect with Us ?
                     </Typography>
-                    <Typography variant="caption" color="error">The field is required as mark as*</Typography> 
+                    <Typography variant="caption" textAlign="center" color="secondary">The field marked with * are required</Typography> 
                 </Box>
                 <Box sx={{width:{xs:"100%", sm:"70%", md:"60%"}}}>
                     <Grid container spacing={2}>
@@ -183,12 +148,12 @@ function Enquiry({theme} : {theme:any}) {
                             <TextField  style={style.textField} fullWidth variant='outlined' label="Your Website (Optional)" InputProps={style.inputProps} InputLabelProps={style.inputLableProps}/>
                         </Grid>
                         <Grid item xs={12} sm={12} md={12}>
-                            <TextField select value={enquiryHelpType} style={style.textField} fullWidth variant='outlined' label="How can we help you?" InputProps={style.inputProps} InputLabelProps={style.inputLableProps}>
+                            <TextField select value={enquiryHelpType} style={style.textField} fullWidth variant='outlined' label="Select Service Type" InputProps={style.inputProps} InputLabelProps={style.inputLableProps}>
                                 {
-                                    enquityOption.filter((item) => project ? item.type === "Project" : item.type === "OutSource").map((item, index) => {
+                                    enquityOption.map((item, index) => {
                                         return(
-                                            <MenuItem onClick={()=>setEnquiryHelpType(item.value)} style={{color : theme.palette.primary.main, fontSize : "14px" }} key={index} value={item.value}>
-                                                {item.value}
+                                            <MenuItem onClick={()=>setEnquiryHelpType(item)} style={{color : theme.palette.primary.main, fontSize : "14px" }} key={index} value={item}>
+                                                {item}
                                             </MenuItem>
                                         )
                                     })
@@ -207,7 +172,6 @@ function Enquiry({theme} : {theme:any}) {
                     </Grid>
                 </Box>
                 <Button style={style.headerAboutButton} variant="contained"><Typography variant='button' color="white" fontWeight="500" >Send Message</Typography></Button>
-                <img style={{transform:"rotate(-45deg)", position:"absolute", bottom:"-20%", right:"0px"}} src={atIcon} alt="@Icon" width="30%"/>
             </Box>
         </Box>
     </Box>

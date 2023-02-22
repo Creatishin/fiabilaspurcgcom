@@ -1,11 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 // import logo from "../../Assets/Icons/fullWhiteLogo.png";
-import logo from "../../Assets/Icons/FooterLogo.svg";
-import emailFooter from "../../Assets/Icons/emailFooter.png";
-import facebook from "../../Assets/Icons/whiteFacebook.png";
-import linkedin from "../../Assets/Icons/whiteLinkedin.png";
-import twitter from "../../Assets/Icons/whiteTwitter.png";
+import logo from "../../Assets/Icons/FIALOGO.png";
 import { companyDetail } from "../../config";
 import { useNavigate } from "react-router-dom";
 import CopyrightIcon from "@mui/icons-material/Copyright";
@@ -116,7 +112,6 @@ function Footer({ theme }: { theme: any }) {
               Gurugram, India.
             </Typography>
             <Box style={style.detailsEmail}>
-              <img src={emailFooter} alt="email" width="25px" />
               <Typography
                 onClick={() =>
                   (window.location.href = "mailto: " + companyDetail.email)
@@ -285,12 +280,6 @@ function Footer({ theme }: { theme: any }) {
               }}
               href="https://www.linkedin.com/company/okoderstech/mycompany/ "
             >
-              <img
-                style={style.socialIcon}
-                src={linkedin}
-                alt="linkedin"
-                height="24px"
-              />
             </a>
             {/* 
             <img

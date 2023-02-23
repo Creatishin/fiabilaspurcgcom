@@ -42,17 +42,14 @@ function SuspenseLoading({theme} : {theme:any}) {
     };
     
   return (
-    <Box style={style.container} sx={{backgroundImage : `linear-gradient(${theme.backgroundColor.mainGradient1}, ${theme.backgroundColor.mainGradient2})`,}}>
+    <Box style={style.container} sx={{backgroundColor:theme.palette.primary.main}}>
         <motion.div
             initial={{ opacity: 0, x : 200 }}
             animate={{ opacity: 1, x :0 }}
             exit={{ opacity: 0, x : -200 }}
             style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:'center'}}
         >
-            <Box style={style.circle}>
-                <Box style={style.box}></Box>
-            </Box>
-            <img src={loader} alt="loader" width="80px" />
+            <img src={loader} alt="loader" width="300px" />
         </motion.div>
     </Box>
   )

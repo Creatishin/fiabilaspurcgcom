@@ -1,11 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-// import logo from "../../Assets/Icons/fullWhiteLogo.png";
 import logo from "../../Assets/Icons/FIALOGO.png";
-import { companyDetail } from "../../config";
 import { useNavigate } from "react-router-dom";
-import CopyrightIcon from "@mui/icons-material/Copyright";
-import { Link } from "react-router-dom";
 
 function Footer({ theme }: { theme: any }) {
   const style = {
@@ -106,86 +102,11 @@ function Footer({ theme }: { theme: any }) {
       <Box style={style.container}>
         <Grid container>
           <Grid item xs={12} sm={12} md={6} style={style.details}>
-            <img src={logo} alt="Okoders" width="145px" />
+            <img src={logo} alt="Okoders" width="90%" style={{maxWidth:"300px"}} />
             <Typography style={style.detailsText} variant="body2" color="white">
-              Okoders is an award winning Custom Software Development Company based in
-              Gurugram, India.
+            We are a team of Qualified Forensic Consultant, where everyone have the best solution of investigations in the field of Handwriting & Questioned Documents, Finger Print, Scene of Crime etc.
             </Typography>
-            <Box style={style.detailsEmail}>
-              <Typography
-                onClick={() =>
-                  (window.location.href = "mailto: " + companyDetail.email)
-                }
-                style={style.infoText}
-                sx={{ fontSize: "16px" }}
-                variant="body2"
-                color="white"
-              >
-                {companyDetail.email}
-              </Typography>
-            </Box>
-            <Typography
-              onClick={() =>
-                (window.location.href = "tel://" + companyDetail.contact)
-              }
-              style={style.infoText}
-              sx={{ fontSize: "16px" }}
-              variant="body2"
-              color="white"
-            >
-              <span style={{ fontWeight: "600" }}>Call Us: </span>
-              {companyDetail.contact}
-            </Typography>
-            <Typography
-              onClick={() =>
-                (window.location.href = "https://goo.gl/maps/sQyx2zkoPqSx3GoN6")
-              }
-              style={style.infoText}
-              sx={{ fontSize: "16px" }}
-              variant="body2"
-              color="white"
-            >
-              <span style={{ fontWeight: "600" }}>Address: </span>
-              {companyDetail.address}
-            </Typography>
-          </Grid>
-          <Grid item xs={6} sm={6} md={3} style={style.whoWeAre}>
-            <Typography variant="body2" fontWeight="600" color="white">
-              Useful Links
-            </Typography>
-            <Typography
-              onClick={() => navigate("customsoftware")}
-              sx={style.linkText}
-              variant="body2"
-              color="white"
-            >
-              Custom Software
-            </Typography>
-            <Typography
-              onClick={() => navigate("outsourcing")}
-              sx={style.linkText}
-              variant="body2"
-              color="white"
-            >
-              Outsourcing
-            </Typography>
-            <Typography
-              onClick={() => navigate("designstudio")}
-              sx={style.linkText}
-              variant="body2"
-              color="white"
-            >
-              Design Studio
-            </Typography>
-
-            <Typography
-              onClick={() => navigate("career")}
-              sx={style.linkText}
-              variant="body2"
-              color="white"
-            >
-              Join Our Team
-            </Typography>
+            
           </Grid>
           <Grid item xs={6} sm={6} md={3} style={style.whoWeAre}>
             <Typography variant="body2" fontWeight="600" color="white">
@@ -199,14 +120,19 @@ function Footer({ theme }: { theme: any }) {
             >
               About Us
             </Typography>
-            <Typography sx={style.linkText} variant="body2" color="white">
-              News
+            <Typography
+              onClick={() => navigate("services")}
+              sx={style.linkText}
+              variant="body2"
+              color="white"
+            >
+              Services
             </Typography>
             <Typography sx={style.linkText} variant="body2" color="white">
-              Testimonials
+              Blogs
             </Typography>
             <Typography
-              onClick={() => navigate("contactus")}
+              onClick={() => navigate("contacts")}
               sx={style.linkText}
               variant="body2"
               color="white"
@@ -216,78 +142,10 @@ function Footer({ theme }: { theme: any }) {
           </Grid>
         </Grid>
         <Box style={style.policyNsocial}>
-          <Box
-            style={style.policy}
-            sx={{
-              justifyContent: { xs: "center", sm: "center", md: "flex-start" },
-            }}
-          >
-            <Typography
-            component={Link}
-            to="/privacypolicy"
-              style={style.linkText__privacy}
-              // variant="body2"
-              color="white"
-            >
-              Privacy Policy
-            </Typography>
-            <Typography
-             component={Link}
-             to="/termandcondition"
-              style={style.linkText__privacy}
-              // variant="body2"
-              color="white"
-            >
-              Terms
-            </Typography>
-
-            <Typography
-              style={style.linkText__privacy}
-              // variant="body2"
-              color="white"
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CopyrightIcon style={{ fontSize: "16px" }} /> 2023 OKoders. All
-              rights reserved.
-            </Typography>
-          </Box>
           <Box style={style.love}>
             <Typography variant="body2" color="white">
-              Made with ❤️ by okoders
+              Made with ❤️ by creatish
             </Typography>
-          </Box>
-          <Box
-            style={style.social}
-            sx={{
-              justifyContent: { xs: "center", sm: "center", md: "flex-end" },
-            }}
-          >
-            {/* <img
-              style={style.socialIcon}
-              src={twitter}
-              alt="Twitter"
-              height="18px"
-            /> */}
-            <a
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              href="https://www.linkedin.com/company/okoderstech/mycompany/ "
-            >
-            </a>
-            {/* 
-            <img
-              style={style.socialIcon}
-              src={facebook}
-              alt="facebook"
-              height="18px"
-            /> */}
           </Box>
         </Box>
       </Box>

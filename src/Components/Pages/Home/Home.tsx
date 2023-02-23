@@ -1,5 +1,5 @@
 import { Box, Button, Grid, IconButton, Toolbar, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React from 'react'
 import frame1 from '../../../Assets/Home/Frame1.png'
 import frame2 from '../../../Assets/Home/Frame-11.png'
 import homeSection2 from '../../../Assets/Home/home_section2.png'
@@ -7,11 +7,13 @@ import doc from '../../../Assets/Home/document-examiner.jpg'
 import finger from '../../../Assets/Home/Forensic-Fingerprint-Analysis.jpg'
 import crime from '../../../Assets/Home/crime.jpeg'
 import legalAdvice from '../../../Assets/Home/legalAdvice.jpg'
-import { ArrowForwardIos, ArrowRightAltOutlined, ContentPasteSearchOutlined, FingerprintOutlined, GavelOutlined, MinorCrashOutlined, NotStartedOutlined, OnlinePredictionOutlined } from '@mui/icons-material'
-import { motion } from "framer-motion";
+import { ArrowRightAltOutlined } from '@mui/icons-material'
 import { testimonials } from '../../../Data/Testimonials'
-import testinomial from '../../../Assets/Home/testinomial.png'
 import Enquiry from '../../Modals/Enquiry'
+import Statics from '../../Modals/Statics'
+import Testimonial from '../../Modals/Testimonial'
+import services from '../../../Data/Services'
+import { useNavigate } from 'react-router-dom'
 
 function Home({theme}:{theme:any}) {
 
@@ -44,33 +46,9 @@ function Home({theme}:{theme:any}) {
       cursor: "pointer",
       width:"fit-content"
     } as React.CSSProperties,
-    testimonial: {
-      display: "flex",
-      gap: "05px",
-      flexDirection: "column",
-      justifyContent: "center",
-      paddingBottom: "20px",
-    } as React.CSSProperties,
-    testimonialNavigation: {
-      display: "flex",
-      gap: "15px",
-      alignItems: "center",
-      flexWrap: "wrap",
-    } as React.CSSProperties,
-    testimonialButton: {
-      zIndex: "1",
-      backgroundColor: "#092532 !important",
-      width: "30px",
-      borderRadius: "8px",
-      height: "30px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "0px",
-    } as React.CSSProperties,
   }
 
-  const [testimonialIndex, setTestimonialIndex] = useState<number>(0);
+  const navigate = useNavigate()
 
   return (
     <>
@@ -90,6 +68,7 @@ function Home({theme}:{theme:any}) {
           <Box
               className="getQuoteClass"
               style={style.knowMore}
+              onClick={()=>navigate("about")}
             >
               <Typography
                 variant="caption"
@@ -127,48 +106,7 @@ function Home({theme}:{theme:any}) {
         </Grid>
       </Box>
     </Box>
-    <Box style={style.mainContainer} sx={{position:"relative"}}>
-      <Typography textAlign="center" sx={{display:{sx:"none", sm:"block"}}} color="white" style={{position:"absolute", textShadow:"0px 0px 20px rgba(0,0,0,0.05)"}} fontSize="15vw" fontWeight="800">STATISTICS</Typography>
-      <Box style={style.container}>
-        <Grid zIndex={1} container style={{display:"flex", justifyContent:"center"}}>
-          <Grid item xs={12} textAlign="center">
-            <Typography variant="h2" color="secondary" fontWeight="700">Statistics</Typography>
-          </Grid>
-          <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}}  item xs={6} sm={3}>
-            <Typography variant='h2' fontWeight="400">
-              30<span style={{color:theme.palette.secondary.main}}>+</span>
-            </Typography>
-            <Typography variant='caption' fontWeight="700">
-              Professionals Team
-            </Typography>
-          </Grid>
-          <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}}  item xs={6} sm={3}>
-          <Typography variant='h2' fontWeight="400">
-              180<span style={{color:theme.palette.secondary.main}}>+</span>
-            </Typography>
-            <Typography variant='caption' fontWeight="700">
-              Satisfied customers
-            </Typography>
-          </Grid>
-          <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}} item xs={6} sm={3}>
-          <Typography  variant='h2' fontWeight="400">
-              85<span style={{color:theme.palette.secondary.main}}>+</span>
-            </Typography>
-            <Typography  variant='caption' fontWeight="700">
-              Cases Solved
-            </Typography>
-          </Grid>
-          <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}}  item xs={6} sm={3}>
-          <Typography variant='h2' fontWeight="400">
-              1<span style={{color:theme.palette.secondary.main}}>+</span>
-            </Typography>
-            <Typography  variant='caption' fontWeight="700">
-              Years of experience
-            </Typography>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+    <Statics theme={theme} />
     <Box style={style.mainContainer}>
       <Grid my={10} container>
         <Grid p={1} item xs={6} sm={3} sx={{height:{xs:"200px", sm:"250px", md:"300px", borderRadius:"20px"}}}>
@@ -217,6 +155,7 @@ function Home({theme}:{theme:any}) {
                 mt={4}
                 className="getQuoteClass"
                 style={style.knowMore}
+                onClick={()=>navigate("services")}
               >
                 <Typography
                   variant="caption"
@@ -228,181 +167,32 @@ function Home({theme}:{theme:any}) {
             </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
-            <Box>
-              <IconButton sx={{ color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
-                <ContentPasteSearchOutlined sx={{ fontSize:"30px"}}/>
-              </IconButton>
-              <Typography my={2} variant="body2" color="white" fontWeight="500">Document Examination</Typography>
-              <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
-                We provide complete solution for Forensic handwriting examination related matters.
-              </Typography>
-              <Button endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
-                Raise Enquiry
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
-            <Box>
-              <IconButton sx={{ color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
-                <FingerprintOutlined sx={{ fontSize:"30px"}}/>
-              </IconButton>
-              <Typography my={2} variant="body2" color="white" fontWeight="500">Fingerprint Analysis</Typography>
-              <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
-                We provide complete solutions in fingerprint examination related matters.
-              </Typography>
-              <Button endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
-                Raise Enquiry
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
-            <Box>
-              <IconButton sx={{ color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
-                <MinorCrashOutlined sx={{ fontSize:"30px"}}/>
-              </IconButton>
-              <Typography my={2} variant="body2" color="white" fontWeight="500">Crime Scene Investigation</Typography>
-              <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
-              Our Forensic experts solve and investigate cases related to the crime scene.
-              </Typography>
-              <Button endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
-                Raise Enquiry
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
-            <Box>
-              <IconButton sx={{ color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
-                <GavelOutlined sx={{ fontSize:"30px"}}/>
-              </IconButton>
-              <Typography my={2} variant="body2" color="white" fontWeight="500">Legal Advice</Typography>
-              <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
-              We have a best team of legal experts who provide legal assistance required by an individual/Organization.
-              </Typography>
-              <Button endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
-                Raise Enquiry
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
-            <Box>
-              <IconButton sx={{ color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
-                <NotStartedOutlined sx={{ fontSize:"30px"}}/>
-              </IconButton>
-              <Typography my={2} variant="body2" color="white" fontWeight="500">Audio-Video Forensics</Typography>
-              <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
-              We provide complete solution of Audio and Video verification which can be obtained from a Criminal legal proceedings.
-              </Typography>
-              <Button endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
-                Raise Enquiry
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
-            <Box>
-              <IconButton sx={{color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
-                <OnlinePredictionOutlined sx={{ fontSize:"30px"}}/>
-              </IconButton>
-              <Typography my={2} variant="body2" color="white" fontWeight="500">Cyber Forensics</Typography>
-              <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
-                We provide complete solution for Cyber crime related matters.
-              </Typography>
-              <Button  endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
-                Raise Enquiry
-              </Button>
-            </Box>
-          </Grid>
+          {
+            services.filter((_, index) => index < 6).map((item, index) => {
+              return(
+                <Grid key={index} item xs={12} sm={3} md={3} p={3} style={{display:"flex", justifyContent:"center", alignItems:"flex-start"}}>
+                  <Box>
+                    <IconButton onClick={()=>navigate(`services/${item.id}`)} sx={{ color:"#f5f5f5",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px","&:hover": { color:theme.palette.secondary.main}}}>
+                      {item.icon}
+                    </IconButton>
+                    <Typography my={2} variant="body2" color="white" fontWeight="500">{item.title}</Typography>
+                    <Typography mb={2} component={Box} variant="caption" color="#f5f5f5">
+                      {item.para}
+                    </Typography>
+                    <Button onClick={()=>navigate(`services/${item.id}`)} endIcon={<ArrowRightAltOutlined/>} variant="text" sx={{cursor:"pointer",color:"white", fontWeight:"500", "&:hover": {color:theme.palette.secondary.main}}}>
+                      Know More
+                    </Button>
+                  </Box>
+                </Grid>
+              )
+            })
+          }
         </Grid>
       </Box>
     </Box>
     <Box style={style.mainContainer}>
       <Box style={style.container}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={6}>
-            <img src={testinomial} alt="Team" width="90%" />
-          </Grid>
-          <Grid style={style.testimonial} item xs={12} sm={6} md={6}>
-            <Typography variant="subtitle2" fontWeight="500" color="primary">
-              Testimonials
-            </Typography>
-            {testimonials.map((item, index) => {
-              return (
-                index === testimonialIndex && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <Box
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "20px",
-                        margin: "40px 0px",
-                      }}
-                    >
-                      <Typography
-                        variant="h4"
-                        color="primary"
-                        fontWeight="700"
-                      >
-                        {item.title}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color="primary"
-                        fontWeight="400"
-                      >
-                        {item.para}
-                      </Typography>
-                    </Box>
-                    <Typography
-                      variant="body2"
-                      color="primary"
-                      fontWeight="700"
-                    >
-                      {item.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="primary"
-                      fontWeight="400"
-                    >
-                      {item.position} at: {item.company}
-                    </Typography>
-                  </motion.div>
-                )
-              );
-            })}
-            <Box style={style.testimonialNavigation}>
-              <IconButton
-                onClick={() =>
-                  setTestimonialIndex((prev) =>
-                    prev === 0 ? testimonials.length - 1 : prev - 1
-                  )
-                }
-                sx={{
-                  ...style.testimonialButton,
-                  transform: "rotate(180deg)",
-                }}
-                className="custom-right-arrow"
-              >
-                <ArrowForwardIos sx={{ color: "white", fontSize: "15px" }} />
-              </IconButton>
-              <IconButton
-                onClick={() =>
-                  setTestimonialIndex((prev) =>
-                    prev === testimonials.length - 1 ? 0 : prev + 1
-                  )
-                }
-                sx={{ ...style.testimonialButton }}
-                className="custom-right-arrow"
-              >
-                <ArrowForwardIos sx={{ color: "white", fontSize: "15px" }} />
-              </IconButton>
-            </Box>
-          </Grid>
-        </Grid>
+        <Testimonial testimonials={testimonials} />
       </Box>
     </Box>
     <Enquiry theme={theme} />

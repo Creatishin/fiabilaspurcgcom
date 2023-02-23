@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 import { companyDetail } from '../../config'
-import { FacebookSharp, Instagram } from '@mui/icons-material'
+import { FacebookSharp, Instagram, Twitter } from '@mui/icons-material'
 
 function Header({ theme }: { theme: any }) {
 
@@ -54,8 +54,9 @@ function Header({ theme }: { theme: any }) {
           <Box style={{display:"flex", alignItems:"center", gap:'8px'}}>
             <Box style={style.redDot}></Box>
             <Typography style={{cursor:"pointer", color:"white"}} fontWeight="700" variant='caption' color="primary">Follow Us:</Typography>
-            <FacebookSharp style={{color:"white"}}/>
-            <Instagram style={{color:"white"}}/>
+            <FacebookSharp onClick={()=>window.location.href = companyDetail.facebook} style={{color:"white", cursor:"pointer"}}/>
+            <Instagram onClick={()=>window.location.href = companyDetail.instagram} style={{color:"white", cursor:"pointer"}}/>
+            <Twitter onClick={()=>window.location.href = companyDetail.twitter} style={{color:"white", cursor:"pointer"}} />
           </Box>
         </Box>
       </Box>

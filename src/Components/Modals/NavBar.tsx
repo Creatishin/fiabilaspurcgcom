@@ -388,6 +388,7 @@ function NavBar({ theme }: { theme: any }) {
               }}
               className="getQuoteClass"
               style={style.getQuote}
+              sx={{backgroundColor : currentPath === "quote" ? theme.palette.secondary.main : "transparent"}}
             >
               <Typography
                 variant="caption"

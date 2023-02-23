@@ -1,8 +1,8 @@
 export const companyDetail = {
-  email: "info@okoders.com",
-  contact: "+91-9873-1127-71",
-  address: "Magnum Towers, Sector-58 Gurgaon, Haryana, IN",
-  twitter: "#",
-  facebook: "#",
-  linkedin: "#",
+  email: "contact@fiabilaspurcg.com",
+  contact: "+91 9479140189",
+  address: "Nehru Nagar, Bilaspur (C.G.)",
+  twitter: "https://twitter.com/fiabilaspurcg",
+  facebook: "https://www.facebook.com/fiabilaspurcg",
+  instagram: "https://www.instagram.com/fiabilaspurcg/",
 };

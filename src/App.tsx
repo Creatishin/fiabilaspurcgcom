@@ -1,11 +1,16 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import Footer from "./Components/Modals/Footer";
 import Header from "./Components/Modals/Header";
 import NavBar from "./Components/Modals/NavBar";
 import SuspenseLoading from "./Components/Modals/SuspenseLoading";
 import ScrollToTop from "./Components/ScrollToTop";
+import About from "./Components/Pages/About/About";
+import Services from "./Components/Pages/Services/Services";
+import Service from "./Components/Pages/Services/Service";
+import Contact from "./Components/Pages/Contact/Contact";
+import Quote from "./Components/Pages/Quote/Quote";
 const Home = React.lazy(() => import("./Components/Pages/Home/Home"))
 
 declare module "@mui/material/styles" {
@@ -193,6 +198,11 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home theme={theme} />} />
+            <Route path="about" element={<About theme={theme} />} />
+            <Route path="services" element={<Services theme={theme} />} />
+            <Route path="services/:id" element={<Service theme={theme} />} />
+            <Route path="contacts" element={<Contact theme={theme} />} />
+            <Route path="quote" element={<Quote theme={theme} />} />
           </Routes>
           <Footer theme={theme} />
         </Suspense>

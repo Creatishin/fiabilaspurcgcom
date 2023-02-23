@@ -1,9 +1,31 @@
 import { Button, Grid, MenuItem, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import services from '../../Data/Services'
+import pot from '../../Assets/images/Frame-4.png'
 
-function Enquiry({theme} : {theme:any}) {
+function Enquiry({theme, dark, id} : {theme:any, dark?:boolean, id?:string}) {
 
+    const [enquiryHelpType, setEnquiryHelpType] = useState<string>("")
+    const [enquityOption, setEnquityOption] = useState<string[]>([""])
+
+
+    useEffect(()=>{
+        const enquiry : string[] = [""]
+
+        services.map((item) => {
+            enquiry.push(item.title)
+            return true
+        })
+        setEnquityOption(
+            enquiry
+        )
+
+    },[])
+
+    useEffect(()=>{
+        if(id) setEnquiryHelpType(services.filter(item => item.id === id)[0].title)
+    },[id])
     const style = {
         container : {
             padding : "40px 10px",
@@ -49,7 +71,8 @@ function Enquiry({theme} : {theme:any}) {
             borderRadius : "0px 12px 12px 0px"
         } as React.CSSProperties,
         textField : {
-            backgroundColor : "white",
+            backgroundColor : dark ? "rgb(60, 60, 70, 0.3)" : "white",
+            backdropFilter:"blur(3px)",
             border : "0px",
             borderRadius : "12px"
         } as React.CSSProperties,
@@ -75,7 +98,7 @@ function Enquiry({theme} : {theme:any}) {
                 },
             },
             style: {
-                color : theme.palette.primary.main,
+                color : dark ? "white" : theme.palette.primary.main,
                 fontSize : "14px",
                 fontWeight : "400",
             }
@@ -96,8 +119,9 @@ function Enquiry({theme} : {theme:any}) {
             }
         },
         headerAboutButton : {
-            backgroundColor : theme.palette.primary.main,
+            backgroundColor : dark ? "rgb(60, 60, 70, 0.3)" :  theme.palette.primary.main,
             borderRadius : "12px",
+            backdropFilter:"blur(3px)",
             padding : "0px 40px",
             width : "90%",
             maxWidth : "400px",
@@ -107,28 +131,14 @@ function Enquiry({theme} : {theme:any}) {
         } as React.CSSProperties,
     }
 
-    const enquityOption = [
-        "Questioned Document Examination",
-        "Fingerprint Analysis",
-        "Crime Scene Investigation",
-        "Legal Advice",
-        "Audio - Video Forensics",
-        "Medico-Legal Consultation",
-        "Cyber Forensics",
-        "Detective Service",
-        "Insurance Claim Investigation"
-    ]
-
-    const [enquiryHelpType, setEnquiryHelpType] = useState<string>("")
-
   return (
     <>
-    <Box style={style.container} sx={{position:"relative", backgroundImage : `linear-gradient(${theme.backgroundColor.linear1}, ${theme.backgroundColor.linear2})`,}}>
-        <Box style={style.wrapper}>
+    <Box style={style.container} sx={{position:"relative", backgroundImage : `linear-gradient(${dark ? theme.palette.primary.main : theme.backgroundColor.linear1}, ${dark ? theme.palette.primary.main : theme.backgroundColor.linear2})`,}}>
+        <Box style={style.wrapper} sx={{zIndex:2}}>
             <Box style={style.uniWrapper} sx={{flexDirection:"column", paddingBottom : "40px"}}>
                 
                 <Box textAlign="center">
-                    <Typography variant='h2' textAlign="center" fontWeight="700" color="primary">
+                    <Typography variant='h2' textAlign="center" fontWeight="700" color={dark ? "white" : "primary"}>
                         Connect with Us ?
                     </Typography>
                     <Typography variant="caption" textAlign="center" color="secondary">The field marked with * are required</Typography> 
@@ -163,17 +173,12 @@ function Enquiry({theme} : {theme:any}) {
                         <Grid item xs={12} sm={12} md={12}>
                             <TextField multiline rows={7}  style={style.textField} fullWidth variant='outlined' label="Describe in details..." type="text" InputProps={style.inputProps} InputLabelProps={style.inputLableProps}/>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={12} textAlign="center">
-                            <Box style={{display : "flex", alignItems : "center", justifyContent : "center", gap : "10px"}}>
-                                <TextField style={style.checkbox} variant='outlined' type="checkbox" InputProps={style.inputProps} InputLabelProps={style.inputLableProps}/>
-                                <Typography variant='caption' fontWeight="400" color="primary">By submitting, I’m agree to the <span style={{color : theme.palette.secondary.main, textDecoration:"underline"}}>Terms and Conditions</span> </Typography>
-                            </Box>
-                        </Grid>
                     </Grid>
                 </Box>
                 <Button style={style.headerAboutButton} variant="contained"><Typography variant='button' color="white" fontWeight="500" >Send Message</Typography></Button>
             </Box>
         </Box>
+        { dark ? <img src={pot} alt="Pot" style={{position:'absolute', right:0, bottom:0, zIndex:1}} /> : null}
     </Box>
     </>
   )

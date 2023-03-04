@@ -4,5 +4,6 @@ export default interface Testimonials {
     company : string,
     position : string,
     name : string,
-    website? : string
+    website? : string,
+    uid?: string
 }

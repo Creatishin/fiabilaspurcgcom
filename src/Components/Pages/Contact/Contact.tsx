@@ -2,7 +2,7 @@ import { Box, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 import header from '../../../Assets/About/header.png'
 import contact from '../../../Assets/images/contact.png'
 import Statics from '../../Modals/Statics'
-import { FmdGood } from '@mui/icons-material'
+import { Call, Email, EmailOutlined, FmdGood, LockClock } from '@mui/icons-material'
 import Enquiry from '../../Modals/Enquiry'
 import Testimonial from '../../Modals/Testimonial'
 import { testimonials } from '../../../Data/Testimonials'
@@ -71,21 +71,21 @@ function Contact({theme}:{theme:any}) {
                                 </Grid>
                                 <Grid item xs={6}>
                                     <IconButton sx={{marginBottom:"10px", color:"#777777",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px", "&:hover" : {color:theme.palette.secondary.main}}}>
-                                        <FmdGood />
+                                        <Email />
                                     </IconButton>
                                     <Typography variant="body1" color="primary" fontWeight="700">Email</Typography>
                                     <Typography variant="caption" color="#777777" >{ companyDetail.email }</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
                                     <IconButton sx={{marginBottom:"10px", color:"#777777",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px", "&:hover" : {color:theme.palette.secondary.main}}}>
-                                        <FmdGood />
+                                        <Call />
                                     </IconButton>
                                     <Typography variant="body1" color="primary" fontWeight="700">Phone number</Typography>
                                     <Typography variant="caption" color="#777777" >{ companyDetail.contact } <br/> +91 9407947379/89</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
                                     <IconButton sx={{marginBottom:"10px", color:"#777777",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px", "&:hover" : {color:theme.palette.secondary.main}}}>
-                                        <FmdGood />
+                                        <LockClock />
                                     </IconButton>
                                     <Typography variant="body1" color="primary" fontWeight="700">Working hours</Typography>
                                     <Typography variant="caption" color="#777777" >Mon - Sat: 10:00 - 19:00 <br/> Sun: Day Off</Typography>

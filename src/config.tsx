@@ -6,3 +6,5 @@ export const companyDetail = {
   facebook: "https://www.facebook.com/fiabilaspurcg",
   instagram: "https://www.instagram.com/fiabilaspurcg/",
 };
+
+export const baseUrl = 'https://fiabilaspurcgcom-default-rtdb.firebaseio.com/'

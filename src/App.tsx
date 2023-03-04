@@ -11,7 +11,10 @@ import Services from "./Components/Pages/Services/Services";
 import Service from "./Components/Pages/Services/Service";
 import Contact from "./Components/Pages/Contact/Contact";
 import Quote from "./Components/Pages/Quote/Quote";
+import { Provider } from 'react-redux'
+import store from './Store'
 const Home = React.lazy(() => import("./Components/Pages/Home/Home"))
+
 
 declare module "@mui/material/styles" {
   interface ThemeOptions {
@@ -188,23 +191,26 @@ export const theme = createTheme({
 });
 
 function App() {
-
+  
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Suspense fallback={<SuspenseLoading theme={theme} />}>
-          <Header theme={theme} />
-          <NavBar theme={theme} />
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Home theme={theme} />} />
-            <Route path="about" element={<About theme={theme} />} />
-            <Route path="services" element={<Services theme={theme} />} />
-            <Route path="services/:id" element={<Service theme={theme} />} />
-            <Route path="contacts" element={<Contact theme={theme} />} />
-            <Route path="quote" element={<Quote theme={theme} />} />
-          </Routes>
-          <Footer theme={theme} />
+          <Provider store={store}>
+            {/* <Header theme={theme} />
+            <NavBar theme={theme} /> */}
+            <ScrollToTop />
+            <Routes>
+              {/* <Route path="/" element={<Home theme={theme} />} />
+              <Route path="about" element={<About theme={theme} />} />
+              <Route path="services" element={<Services theme={theme} />} />
+              <Route path="services/:id" element={<Service theme={theme} />} />
+              <Route path="contacts" element={<Contact theme={theme} />} />
+              <Route path="quote" element={<Quote theme={theme} />} /> */}
+              <div></div>
+            </Routes>
+            {/* <Footer theme={theme} /> */}
+          </Provider>
         </Suspense>
       </BrowserRouter>
     </ThemeProvider>

@@ -11,7 +11,8 @@ function Header({ theme }: { theme: any }) {
       backgroundColor : theme.backgroundColor.header,
       padding : "17px 30px",
       justifyContent : "center",
-      position : "sticky",
+      position : "fixed",
+      width:"100%",
       top:"0px"
     } as React.CSSProperties,
     container: {

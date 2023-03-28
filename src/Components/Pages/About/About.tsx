@@ -1,13 +1,14 @@
 import { Box, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 import React from 'react'
 import header from '../../../Assets/About/header.png'
-import aboutheader from '../../../Assets/About/aboutheader.png'
+// import aboutheader from '../../../Assets/About/aboutheader.png'
 import Statics from '../../Modals/Statics'
 import { FavoriteBorderOutlined, ModeStandbyOutlined, UpdateOutlined } from '@mui/icons-material'
 import Testimonial from '../../Modals/Testimonial'
 import { mentorTestimonials } from '../../../Data/Testimonials'
 import Enquiry from '../../Modals/Enquiry'
 import LeafDivider from '../../Modals/LeafDivider'
+import director from '../../../Assets/images/director.jpg'
 
 function About({theme}:{theme:any}) {
 
@@ -33,6 +34,17 @@ function About({theme}:{theme:any}) {
             width: "100%",
             gap: "40px",
             flexDirection: "column"
+        } as React.CSSProperties,
+        directorContainer : {
+            width:'80%',
+            maxWidth:"300px",
+            aspectRatio:1,
+            border:`2px solid ${theme.palette.secondary.main}`,
+            margin:"auto",
+            borderRadius:"50%",
+            backgroundImage : `url(${director})`,
+            backgroundSize : "cover",
+            backgroundPositionX: "center"
         } as React.CSSProperties
     }
 
@@ -41,7 +53,7 @@ function About({theme}:{theme:any}) {
         <Toolbar style={{height:"70px", backgroundColor:theme.palette.primary.main}}/>
         <Box style={style.mainContainer} sx={{backgroundColor:theme.palette.primary.main, position:"relative", overflow:"hidden"}}>
             <Box style={style.container}>
-                <Box style={style.headerContainer} sx={{padding:"50px 0px", positin:"relative"}}>
+                <Box style={style.headerContainer} sx={{padding:"120px 0px", positin:"relative"}}>
                     <Box sx={{zIndex:3}} style={{width:"4px", height:"80px", borderRadius:"1px", backgroundColor:theme.palette.secondary.main}}/>
                     <Typography sx={{zIndex:3}} variant="h1" color="white" fontWeight="700">About FIA</Typography>
                     <Typography position="absolute" sx={{fontSize:{xs:"20vw", sm:"18vw", md:"15vw"}}} textAlign="center" variant="h1" zIndex={1} color="#171b25" fontWeight="700">ABOUT FIA</Typography>
@@ -51,7 +63,7 @@ function About({theme}:{theme:any}) {
         </Box>
         <Box style={style.mainContainer}>
             <Box style={style.container}>
-                <Grid container rowSpacing={5}>
+                <Grid style={{alignItems:"center"}} container rowSpacing={5}>
                     <Grid style={{display:"flex", justifyContent:"center", flexDirection:"column", gap:"30px"}} item xs={12} sm={6}>
                         <Typography variant="h2" fontWeight="500">
                             We are <span style={{color:theme.palette.secondary.main}}>Professional Team</span> of Investigators
@@ -64,7 +76,14 @@ function About({theme}:{theme:any}) {
                         </Typography>
                     </Grid>
                     <Grid textAlign="center" item xs={12} sm={6}>
-                        <img width="80%" src={aboutheader} alt="HomeSection2"></img> 
+                        <Box style={style.directorContainer}></Box>
+                        <Typography mt={3} variant="body2" fontWeight="500" color="black">
+                            Mr. Dipendra Barmate
+                        </Typography>
+                        <Typography variant="caption" fontWeight="500" color={theme.textColor.para}>
+                            Director FIA
+                        </Typography>
+                        {/* <img width="80%" src={director} alt="HomeSection2"></img>  */}
                     </Grid>
                 </Grid>
             </Box>

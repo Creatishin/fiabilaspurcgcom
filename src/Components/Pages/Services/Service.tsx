@@ -56,7 +56,7 @@ function Service({theme}:{theme:any}) {
             <Toolbar style={{height:"70px", backgroundColor:theme.palette.primary.main}}/>
             <Box style={style.mainContainer} sx={{backgroundColor:theme.palette.primary.main, position:"relative", overflow:"hidden"}}>
                 <Box style={style.container}>
-                    <Box style={style.headerContainer} sx={{padding:"50px 0px", positin:"relative"}}>
+                    <Box style={style.headerContainer} sx={{padding:"120px 0px", positin:"relative"}}>
                         <Box sx={{zIndex:3}} style={{width:"4px", height:"80px", borderRadius:"1px", backgroundColor:theme.palette.secondary.main}}/>
                         <Box sx={{zIndex:3}} style={{display:"flex", justifyContent:"center", alignItems:'center', gap:"20px"}}>
                             <IconButton sx={{ color:theme.palette.secondary.main,border:`1px solid ${theme.palette.secondary.main}`, padding:"20px"}}>

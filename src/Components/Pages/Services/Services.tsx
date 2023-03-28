@@ -40,7 +40,7 @@ function Services({theme}:{theme:any}) {
         <Toolbar style={{height:"70px", backgroundColor:theme.palette.primary.main}}/>
         <Box style={style.mainContainer} sx={{backgroundColor:theme.palette.primary.main, position:"relative", overflow:"hidden"}}>
             <Box style={style.container}>
-                <Box style={style.headerContainer} sx={{padding:"50px 0px", positin:"relative"}}>
+                <Box style={style.headerContainer} sx={{padding:"120px 0px", positin:"relative"}}>
                     <Box sx={{zIndex:3}} style={{width:"4px", height:"80px", borderRadius:"1px", backgroundColor:theme.palette.secondary.main}}/>
                     <Typography sx={{zIndex:3}} variant="h1" color="white" fontWeight="700">Services</Typography>
                     <Typography position="absolute" sx={{fontSize:{xs:"20vw", sm:"18vw", md:"15vw"}}} textAlign="center" variant="h1" zIndex={1} color="#171b25" fontWeight="700">SERVICES</Typography>

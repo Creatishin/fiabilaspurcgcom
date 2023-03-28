@@ -197,19 +197,18 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={<SuspenseLoading theme={theme} />}>
           <Provider store={store}>
-            {/* <Header theme={theme} />
-            <NavBar theme={theme} /> */}
+            <Header theme={theme} />
+            <NavBar theme={theme} />
             <ScrollToTop />
             <Routes>
-              {/* <Route path="/" element={<Home theme={theme} />} />
+              <Route path="/" element={<Home theme={theme} />} />
               <Route path="about" element={<About theme={theme} />} />
               <Route path="services" element={<Services theme={theme} />} />
               <Route path="services/:id" element={<Service theme={theme} />} />
               <Route path="contacts" element={<Contact theme={theme} />} />
-              <Route path="quote" element={<Quote theme={theme} />} /> */}
-              <div></div>
+              <Route path="quote" element={<Quote theme={theme} />} />
             </Routes>
-            {/* <Footer theme={theme} /> */}
+            <Footer theme={theme} />
           </Provider>
         </Suspense>
       </BrowserRouter>

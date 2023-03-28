@@ -2,7 +2,7 @@ import { Box, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 import header from '../../../Assets/About/header.png'
 import contact from '../../../Assets/images/contact.png'
 import Statics from '../../Modals/Statics'
-import { Call, Email, EmailOutlined, FmdGood, LockClock } from '@mui/icons-material'
+import { Call, Email, FmdGood, LockClock } from '@mui/icons-material'
 import Enquiry from '../../Modals/Enquiry'
 import Testimonial from '../../Modals/Testimonial'
 import { testimonials } from '../../../Data/Testimonials'
@@ -41,7 +41,7 @@ function Contact({theme}:{theme:any}) {
             <Toolbar style={{height:"70px", backgroundColor:theme.palette.primary.main}}/>
             <Box style={style.mainContainer} sx={{backgroundColor:theme.palette.primary.main, position:"relative", overflow:"hidden"}}>
                 <Box style={style.container}>
-                    <Box style={style.headerContainer} sx={{padding:"50px 0px", positin:"relative"}}>
+                    <Box style={style.headerContainer} sx={{padding:"120px 0px", positin:"relative"}}>
                         <Box sx={{zIndex:3}} style={{width:"4px", height:"80px", borderRadius:"1px", backgroundColor:theme.palette.secondary.main}}/>
                         <Box sx={{zIndex:3}} style={{display:"flex", justifyContent:"center", alignItems:'center', gap:"20px"}}>
                             <Typography textAlign="center"  variant="h1" color="white" fontWeight="700">Contact</Typography>

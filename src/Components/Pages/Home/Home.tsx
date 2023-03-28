@@ -55,7 +55,7 @@ function Home({theme}:{theme:any}) {
     <Toolbar style={{height:"70px", backgroundColor:theme.palette.primary.main}}/>
     <Box style={style.mainContainer} sx={{backgroundColor:theme.palette.primary.main, position:"relative", overflow:"hidden"}}>
       <Box style={style.container} sx={{zIndex:3}}>
-        <Box style={style.headerContainer} sx={{padding:"100px 0px"}}>
+        <Box style={style.headerContainer} sx={{padding:"180px 0px"}}>
           <Box style={{marginLeft:"40px", width:"4px", height:"80px", borderRadius:"1px", backgroundColor:theme.palette.secondary.main}}/>
           <Box>
             <Typography variant='h2' color="white" fontWeight="700">Justice via</Typography>

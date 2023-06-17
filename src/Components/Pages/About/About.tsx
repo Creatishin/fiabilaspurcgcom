@@ -9,6 +9,8 @@ import { mentorTestimonials } from '../../../Data/Testimonials'
 import Enquiry from '../../Modals/Enquiry'
 import LeafDivider from '../../Modals/LeafDivider'
 import director from '../../../Assets/images/director.jpg'
+import Team from '../../Modals/Team'
+import { TeamData } from '../../../Data/TeamData'
 
 function About({theme}:{theme:any}) {
 
@@ -94,6 +96,7 @@ function About({theme}:{theme:any}) {
                 <Testimonial testimonials={mentorTestimonials} heading={"Our Mentors"}/>
             </Box>
         </Box>
+        <Team member={TeamData} />
         <Box style={style.mainContainer} sx={{backgroundColor:theme.palette.primary.main}}>
             <Box style={style.container} sx={{flexDirection:"column", justifyContent:"center !important", position:"relative"}}>
                 <Typography color="white" variant="h2" fontWeight="500">

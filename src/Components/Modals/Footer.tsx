@@ -1,7 +1,9 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Link } from "@mui/material";
 import React from "react";
 import logo from "../../Assets/Icons/FIALOGO.png";
 import { useNavigate } from "react-router-dom";
+//@ts-ignore
+import Bro from '../../Assets/Files/Broucher.pdf';
 
 function Footer({ theme }: { theme: any }) {
   const style = {
@@ -52,6 +54,8 @@ function Footer({ theme }: { theme: any }) {
       cursor: "pointer",
       fontSize: "16px",
       fontWeight: 400,
+      color:'white',
+      textTransform:"none"
     } as React.CSSProperties,
     linkText__privacy: {
       cursor: "pointer",
@@ -139,6 +143,21 @@ function Footer({ theme }: { theme: any }) {
             >
               Contact Us
             </Typography>
+          </Grid>
+          <Grid item xs={6} sm={6} md={3} style={style.whoWeAre}>
+            <Typography variant="body2" fontWeight="600" color="white">
+              Downloads
+            </Typography>
+            <Link
+              href={Bro}
+              sx={style.linkText}
+              target="_blank"
+              rel="noreferrer"
+              variant="body2"
+              download="Forensic Investigation Agency"
+            >
+              Brochure
+            </Link>
           </Grid>
         </Grid>
         <Box style={style.policyNsocial}>

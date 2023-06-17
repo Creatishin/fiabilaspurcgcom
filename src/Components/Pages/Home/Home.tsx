@@ -58,8 +58,8 @@ function Home({theme}:{theme:any}) {
         <Box style={style.headerContainer} sx={{padding:"180px 0px"}}>
           <Box style={{marginLeft:"40px", width:"4px", height:"80px", borderRadius:"1px", backgroundColor:theme.palette.secondary.main}}/>
           <Box>
-            <Typography variant='h2' color="white" fontWeight="700">Justice via</Typography>
-            <Typography variant='h2' color="secondary" fontWeight="700">Scientific Investigation</Typography>
+            <Typography variant='h1' color="white" fontWeight="700" style={{textTransform:"uppercase"}}>Forensic<br/>Investigation<br/>Agency</Typography>
+            <Typography mt={2} variant='h4' color="secondary" fontWeight="700">Justice Via Scientific Investigation</Typography>
           </Box>
           <Box>
             <Typography variant='caption' color="rgba(255,255,255,.7)" fontWeight="500">Our unique team of Investigators specializes</Typography><br/>
@@ -68,14 +68,14 @@ function Home({theme}:{theme:any}) {
           <Box
               className="getQuoteClass"
               style={style.knowMore}
-              onClick={()=>navigate("about")}
+              onClick={()=>window.location.href = 'tel://9479140189'}
             >
               <Typography
                 variant="caption"
                 color="white"
                 fontWeight="500"
               >
-                Know More
+                Call Us
               </Typography>
           </Box>
         </Box>

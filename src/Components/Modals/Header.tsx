@@ -44,7 +44,7 @@ function Header({ theme }: { theme: any }) {
         <Box style={style.containerItem}>
           <Box style={{display:"flex", alignItems:"center", gap:'8px'}}>
             <Box style={style.redDot}></Box>
-            <Typography style={{cursor:"pointer", color:"white"}} onClick={()=>window.location.href = 'tel://' + companyDetail.contact} variant='caption' color="primary"><span style={{ fontWeight: "700" }}>Call Us: </span>{companyDetail.contact}</Typography>
+            <Typography style={{cursor:"pointer", color:"white"}} onClick={()=>window.location.href = 'tel://9479140189'} variant='caption' color="primary"><span style={{ fontWeight: "700" }}>Call Us: </span>{companyDetail.contact}</Typography>
           </Box>
           <Box style={{display:"flex", alignItems:"center", gap:'8px'}}>
             <Box style={style.redDot}></Box>

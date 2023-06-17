@@ -30,7 +30,7 @@ function Statics({theme}:{theme:any}) {
           </Grid>
           <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}}  item xs={6} sm={3}>
             <Typography variant='h2' fontWeight="400">
-              30<span style={{color:theme.palette.secondary.main}}>+</span>
+              10<span style={{color:theme.palette.secondary.main}}>+</span>
             </Typography>
             <Typography variant='caption' fontWeight="700">
               Professionals Team
@@ -38,15 +38,15 @@ function Statics({theme}:{theme:any}) {
           </Grid>
           <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}}  item xs={6} sm={3}>
           <Typography variant='h2' fontWeight="400">
-              180<span style={{color:theme.palette.secondary.main}}>+</span>
+              500<span style={{color:theme.palette.secondary.main}}>+</span>
             </Typography>
             <Typography variant='caption' fontWeight="700">
-              Satisfied customers
+              Satisfied clients
             </Typography>
           </Grid>
           <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}} item xs={6} sm={3}>
           <Typography  variant='h2' fontWeight="400">
-              85<span style={{color:theme.palette.secondary.main}}>+</span>
+              100<span style={{color:theme.palette.secondary.main}}>+</span>
             </Typography>
             <Typography  variant='caption' fontWeight="700">
               Cases Solved
@@ -54,7 +54,7 @@ function Statics({theme}:{theme:any}) {
           </Grid>
           <Grid textAlign="center" style={{display:"flex", flexDirection:"column", alignItems:"center", padding:"20px"}}  item xs={6} sm={3}>
           <Typography variant='h2' fontWeight="400">
-              1<span style={{color:theme.palette.secondary.main}}>+</span>
+              3<span style={{color:theme.palette.secondary.main}}>+</span>
             </Typography>
             <Typography  variant='caption' fontWeight="700">
               Years of experience

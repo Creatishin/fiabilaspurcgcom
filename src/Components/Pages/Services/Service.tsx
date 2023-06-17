@@ -94,10 +94,10 @@ function Service({theme}:{theme:any}) {
             <Box style={style.mainContainer}>
                 <Box style={style.container}>
                     <Grid container rowSpacing={5}>
-                        <Grid textAlign="center" item xs={12} sm={6}>
+                        <Grid textAlign="center" item xs={12} sm={service.points ? 6 : 12}>
                             <img style={{borderRadius:"15px", boxShadow:"0px 10px 20px rgba(0,0,0,.2)"}} width="90%" src={service.image} alt="HomeSection2"></img> 
                         </Grid>
-                        <Grid style={{display:"flex", justifyContent:"center", flexDirection:"column", gap:"30px"}} item xs={12} sm={6}>
+                        {service.points && <Grid style={{display:"flex", justifyContent:"center", flexDirection:"column", gap:"30px"}} item xs={12} sm={6}>
                             <Typography variant="body1" fontWeight="700">
                                 <span style={{color:theme.palette.primary.main}}>Services that we provide in <span style={{color:theme.palette.secondary.main}}>{service.title}</span> cases are:</span>
                             </Typography>
@@ -115,7 +115,7 @@ function Service({theme}:{theme:any}) {
                                 })
                             }
                             </List>
-                        </Grid>
+                        </Grid>}
                     </Grid>
                 </Box>
             </Box>

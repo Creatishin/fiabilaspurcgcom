@@ -81,7 +81,7 @@ function Contact({theme}:{theme:any}) {
                                         <Call />
                                     </IconButton>
                                     <Typography variant="body1" color="primary" fontWeight="700">Phone number</Typography>
-                                    <Typography variant="caption" color="#777777" >{ companyDetail.contact } <br/> +91 9407947379/89</Typography>
+                                    <Typography variant="caption" color="#777777" >+91 9479140189<br/>{ companyDetail.contact }</Typography>
                                 </Grid>
                                 <Grid item xs={6}>
                                     <IconButton sx={{marginBottom:"10px", color:"#777777",border:`1px solid ${theme.palette.secondary.main}`, padding:"20px", "&:hover" : {color:theme.palette.secondary.main}}}>

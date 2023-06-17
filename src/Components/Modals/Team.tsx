@@ -66,7 +66,7 @@ export default function Team({member}:{member : Person[]}){
         </Box>
         <Box
             style={style.container}
-            sx={{ backgroundColor: "#0F303F", paddingRight: "0px !important" }}
+            sx={{ backgroundColor: "#21242e", paddingRight: "0px !important" }}
         >
             <Box style={style.wrapper} sx={{ paddingRight: "0px !important" }}>
             <Box style={style.memberContainer}>

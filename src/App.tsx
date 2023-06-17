@@ -126,10 +126,10 @@ export const theme = createTheme({
       },
     },
     h4: {
-      fontSize: "36px",
+      fontSize: "30px",
       color: "#092532",
       "@media (max-width:600px)": {
-        fontSize: "30px",
+        fontSize: "26px",
       },
     },
     h5: {

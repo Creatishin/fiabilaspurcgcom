@@ -88,7 +88,7 @@ function Testimonial({testimonials, heading}:{testimonials:Testimonials[], headi
                     color="primary"
                     fontWeight="400"
                 >
-                    {item.position} at: {item.company}
+                    {item.position}, {item.company}
                 </Typography>
                 </motion.div>
             )

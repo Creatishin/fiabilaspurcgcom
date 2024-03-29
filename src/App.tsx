@@ -13,6 +13,7 @@ import Contact from "./Components/Pages/Contact/Contact";
 import Quote from "./Components/Pages/Quote/Quote";
 import { Provider } from 'react-redux'
 import store from './Store'
+import Dashboard from "./Components/Pages/Dashboard/Dashboard";
 const Home = React.lazy(() => import("./Components/Pages/Home/Home"))
 
 
@@ -207,6 +208,7 @@ function App() {
               <Route path="services/:id" element={<Service theme={theme} />} />
               <Route path="contacts" element={<Contact theme={theme} />} />
               <Route path="quote" element={<Quote theme={theme} />} />
+              <Route path="dashboard" element={<Dashboard theme={theme} />} />
             </Routes>
             <Footer theme={theme} />
           </Provider>

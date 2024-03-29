@@ -7,4 +7,9 @@ export const companyDetail = {
   instagram: "https://www.instagram.com/fiabilaspurcg/",
 };
 
+export const user = {
+  userName : "admin",
+  password : "adminWelcome@123"
+}
+
 export const baseUrl = 'https://fiabilaspurcgcom-default-rtdb.firebaseio.com/'
